@@ -20,11 +20,16 @@
           padding: 8% 0 0;
           margin: auto;
         }
+ .menu-page {
+     width: 360px;
+     padding: 8% 0 0;
+     margin: auto;
+ }
         .form {
-          position: relative;
+          position:relative;
           z-index: 1;
           background: #FFFFFF;
-          max-width: 360px;
+          max-width: 100%;
           margin: 0 auto 10px;
           padding: 15px;
           text-align: center;
@@ -45,7 +50,7 @@
           font-family: "Roboto", sans-serif;
           text-transform: uppercase;
           outline: 0;
-          width: 100%;
+          width: 60%;
           border: 0;
           padding: 15px;
           font-size: 14px;
@@ -57,23 +62,24 @@
             --bs-btn-color: #fff;
             --bs-btn-bg: #0d6efd;
             --bs-btn-border-color: #0d6efd;
-            --bs-btn-hover-color: #fff;
-            --bs-btn-hover-bg: #0b5ed7;
+            --bs-btn-hover-color: #02d8f5;
+            --bs-btn-hover-bg: #02d8f5;
             --bs-btn-hover-border-color: #0a58ca;
             --bs-btn-focus-shadow-rgb: 49, 132, 253;
-            --bs-btn-active-color: #fff;
+            --bs-btn-active-color: #02d8f5;
             --bs-btn-active-bg: #0a58ca;
             --bs-btn-active-border-color: #0a53be;
             --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
             --bs-btn-disabled-color: #fff;
             --bs-btn-disabled-bg: #0d6efd;
             --bs-btn-disabled-border-color: #0d6efd;
-            padding: 1%;
+            padding: 1;
             font-family: "Roboto", sans-serif;
             text-transform: uppercase;
-            outline: 0;
+            outline: 1;
             width: 100%;
-            border: 1px;
+            margin: 1;
+            border: 0.5;
             padding: 3%;
             font-size: 100%;
             -webkit-transition: all 0.3 ease;
@@ -81,7 +87,37 @@
             cursor: pointer;
         }
 
+ .body-as {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+ }
 
+ .aside {
+     width: 250px;
+     height: 100%;
+     background-color: #333;
+     color: #fff;
+     position: fixed;
+     top: 0;
+     left: -250px;
+     transition: left 0.3s ease-in-out;
+ }
+
+ #main-content {
+     transition: margin-left 0.3s;
+     padding: 20px;
+ }
+
+ .button-as {
+     font-size: 20px;
+     cursor: pointer;
+     border: none;
+     background-color: #333;
+     color: #fff;
+     padding: 10px;
+ }
  .logout{
      background-color: red;
 
@@ -138,6 +174,50 @@
         .container .info span .fa {
           color: #EF3B3A;
         }
+
+        .radioZona{
+
+            border: 0px;
+            width: 100%;
+            height: 2em;
+        }
+ .modal {
+     display: none; /* Hidden by default */
+     position: fixed; /* Stay in place */
+     z-index: 1; /* Sit on top */
+     padding-top: 100px; /* Location of the box */
+     left: 0;
+     top: 0;
+     width: 100%; /* Full width */
+     height: 100%; /* Full height */
+     overflow: auto; /* Enable scroll if needed */
+     background-color: rgb(0,0,0); /* Fallback color */
+     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ }
+
+ /* Modal Content */
+ .modal-content {
+     background-color: #fefefe;
+     margin: auto;
+     padding: 20px;
+     border: 1px solid #888;
+     width: 80%;
+ }
+
+ /* The Close Button */
+ .close {
+     color: #aaaaaa;
+     float: right;
+     font-size: 28px;
+     font-weight: bold;
+ }
+
+ .close:hover,
+ .close:focus {
+     color: #000;
+     text-decoration: none;
+     cursor: pointer;
+ }
 
         body {
             background: radial-gradient(#ff4757,#ff09e7,#0028ff,#00fff7);

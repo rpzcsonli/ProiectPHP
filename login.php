@@ -1,8 +1,6 @@
 <?php
 include("configurare.php");
-
 session_start();
-
 if(isset($_SESSION['login_user']) && (isset($_SESSION['ramai']) )){
     $ramai = $_SESSION['ramai'];
     if($ramai == true)
@@ -53,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <title>Login Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="gradient">
@@ -73,4 +71,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 </div>
+
 </body>

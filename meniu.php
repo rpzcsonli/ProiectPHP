@@ -23,15 +23,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         $sql = "SELECT * FROM masini WHERE IDuser = '$ID'";
         $result = mysqli_query($mysqli, $sql);
-        echo "<div id='divp' class='form' style='margin-bottom=0'>
-        
-         ";
+        if(mysqli_num_rows($result)!=0){
+        echo "<div id='divphp' class='form' style='margin-bottom=0'>";
         while ($z = mysqli_fetch_assoc($result))
         {
             echo "<button type='submit' class='masini' name='masina' value={$z["IDmasina"]} >{$z["numar"]} </button>";
         }
-        echo"</div>";
+        echo"</div>";}
+        else
+            echo "<div id='divphp' class='form' style='margin-bottom=0'> <h5> Adaugati un autoturism!</h5> </div> ";
     }
+
+
     if(isset($_POST['masina']))
     {
         $_SESSION['masina'] = $_POST['masina'];
@@ -41,6 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         header("Location: adaugareMasini.php");
     }
+
+
 }
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
 </head>
 <body class="gradient">
-<div class="login-page" style="padding: =1%">
+
+<div class="menu-page" style="padding: =1%" id="divP">
     <div class="form" >
         <?php
         echo"<h2 class='badge bg-primary' style='font-size:200% ;'>Utilizator</h2> </br>
@@ -64,17 +70,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button class="btn btn-primary" type ="submit" name="masini">Masini</button>
             </br></br>
             <button class="btn btn-primary" type ="submit" name="adaugare">Adaugare</button>
+            </br>
         </form>
+
     </div>
+
+    <form method="post" class="login-form" id="form2">
+
+    </form>
+
     <script>
-        var elementToMove = document.getElementById('divp');
-        var newParent = document.getElementById('form1');
+        var elementToMove = document.getElementById('divphp');
+        var newParent = document.getElementById('form2');
         newParent.appendChild(elementToMove);
     </script>
+
     <form action="" method="post" class="login-form">
         <div class="form">
             <button  class='btn btn-primary logout' type="submit" name="logout" > Logout</button>
         </div>
+
     </form>
+
+
 </body>
 </html>
+
