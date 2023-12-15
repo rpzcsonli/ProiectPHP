@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['login_user']) && (!isset($_SESSION['ramai']) )){
+    if (session_destroy())
+    {
+        header("Location: login.php");
+        exit();
+    }
+}
+
 global $mysqli;
 include("configurare.php");
 $error = "";

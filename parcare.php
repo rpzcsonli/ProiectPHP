@@ -1,13 +1,19 @@
 <?php
 session_start();
+if(!isset($_SESSION['login_user']) && (!isset($_SESSION['ramai']) )){
+    if (session_destroy())
+    {
+        header("Location: login.php");
+        exit();
+    }
+}
+
 global $mysqli;
 include("configurare.php");
 $error = "";
 $ID=$_SESSION['IDuser'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
     if (isset($_POST['adaugare'])) {
 
 
@@ -21,8 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         } else
             $error = "Introduce un numar!";
-
-
     }
     if (isset($_POST['inapoi'])) {
         header("location: meniu.php");

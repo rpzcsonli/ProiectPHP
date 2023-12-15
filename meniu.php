@@ -21,19 +21,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if(isset($_POST['masini']))
     {
-        $sql = "SELECT numar FROM masini WHERE IDuser = '$ID'";
+        $sql = "SELECT * FROM masini WHERE IDuser = '$ID'";
         $result = mysqli_query($mysqli, $sql);
         echo "<div id='divp' class='form' style='margin-bottom=0'>
         
          ";
         while ($z = mysqli_fetch_assoc($result))
         {
-            echo "<button type='submit' class='masini' name='masina' value={$z["numar"]} >{$z["numar"]} </button>";
+            echo "<button type='submit' class='masini' name='masina' value={$z["IDmasina"]} >{$z["numar"]} </button>";
         }
         echo"</div>";
     }
     if(isset($_POST['masina']))
-    {   $_SESSION['masina'] = $_POST['masina'];
+    {
+        $_SESSION['masina'] = $_POST['masina'];
         header("Location: parcare.php");
     }
     if(isset($_POST['adaugare']))
